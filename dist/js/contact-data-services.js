@@ -282,15 +282,16 @@ ContactDataServices.address = function(customOptions){
 				instance.countryList.value !== undefined && instance.countryList.value !== "");
 	};
 
-	//Determine whether tab key was pressed
-	instance.checkTab = function(event) {
-		var e = event || window.event;
-				e = e.which || e.keyCode;
-				if (e === 9 /*Tab*/) {
-						instance.picklist.keyup(e);
-						return;
-				}
-	};
+    //Determine whether tab key was pressed
+    instance.checkTab = function (event) {
+        var e = event || window.event;
+        e = e.which || e.keyCode;
+        if (e === 9 /*Tab*/) {
+            instance.picklist.keyup(e);
+            event.preventDefault();
+            return;
+        }
+    };
 
 	instance.createCountryDropdown = function(){
 		// What countries?
